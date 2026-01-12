@@ -582,6 +582,49 @@ h4 {
     51%, 100% { opacity: 0; }
 }
 
+.launching-soon-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    background: linear-gradient(135deg, var(--crimson-red) 0%, #b81235 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-2xl);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+    animation: bannerPulse 2s ease-in-out infinite;
+}
+
+.launching-soon-banner .material-icons {
+    font-size: 24px;
+    animation: iconRotate 3s ease-in-out infinite;
+}
+
+@keyframes bannerPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 6px 16px rgba(220, 20, 60, 0.4);
+    }
+}
+
+@keyframes iconRotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
 .hero-cta {
     display: flex;
     gap: var(--spacing-lg);
@@ -1947,6 +1990,29 @@ section {
 .modal-content p {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-2xl);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.modal-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-icon .material-icons {
+    font-size: 64px;
+    color: var(--crimson-red);
+    animation: modalIconPulse 2s ease-in-out infinite;
+}
+
+@keyframes modalIconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .modal-buttons {

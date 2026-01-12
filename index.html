@@ -68,6 +68,10 @@
                     <span class="headline-primary">Connect Well</span>
                     <span class="headline-secondary">Nepal</span>
                 </h1>
+                <div class="launching-soon-banner">
+                    <span class="material-icons">schedule</span>
+                    <span>We are launching soon! Stay tuned for updates.</span>
+                </div>
                 <p class="hero-tagline">
                     <span class="tagline-static">Your Health, Our Priority</span>
                     <span class="tagline-typing" id="typingText"></span>
@@ -503,6 +507,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Launching Soon Modal -->
+    <div class="modal" id="launchingSoonModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLaunchingSoonModal()">
+                <span class="material-icons">close</span>
+            </button>
+            <div class="modal-icon">
+                <span class="material-icons">schedule</span>
+            </div>
+            <h3>We're Launching Soon!</h3>
+            <p>Thank you for your interest in ConnectWell Nepal. We are currently preparing to launch our platform and will be available soon. Please stay tuned for updates!</p>
+            <div class="modal-buttons">
+                <button class="btn-primary-large" onclick="closeLaunchingSoonModal()">Got it</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Mobile App/Web Selection Modal -->
     <div class="modal" id="appSelectionModal">

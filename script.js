@@ -87,18 +87,41 @@ function closeMobileMenu() {
 // ============================================
 
 function handleAuth(action) {
-    const appUrl = 'https://app.connectwellnepal.com';
-    const loginUrl = `${appUrl}/login`;
-    const signupUrl = `${appUrl}/signup`;
+    // Show launching soon modal instead of redirecting
+    showLaunchingSoonModal();
     
-    const targetUrl = action === 'login' ? loginUrl : signupUrl;
-    
-    // If mobile device, show app/web selection modal
-    if (isMobileDevice()) {
-        showAppSelectionModal(targetUrl);
-    } else {
-        // Desktop: direct redirect
-        window.location.href = targetUrl;
+    // Original redirect code (commented out - will be enabled after launch)
+    // const appUrl = 'https://app.connectwellnepal.org';
+    // const loginUrl = `${appUrl}/login`;
+    // const signupUrl = `${appUrl}/signup`;
+    // 
+    // const targetUrl = action === 'login' ? loginUrl : signupUrl;
+    // 
+    // // If mobile device, show app/web selection modal
+    // if (isMobileDevice()) {
+    //     showAppSelectionModal(targetUrl);
+    // } else {
+    //     // Desktop: direct redirect
+    //     window.location.href = targetUrl;
+    // }
+}
+
+
+// ============================================
+// LAUNCHING SOON MODAL
+// ============================================
+
+function showLaunchingSoonModal() {
+    const modal = document.getElementById('launchingSoonModal');
+    if (modal) {
+        modal.classList.add('active');
+    }
+}
+
+function closeLaunchingSoonModal() {
+    const modal = document.getElementById('launchingSoonModal');
+    if (modal) {
+        modal.classList.remove('active');
     }
 }
 
@@ -656,11 +679,21 @@ function initScrollSpy() {
 // ============================================
 
 function initModalCloseOnOutsideClick() {
-    const modal = document.getElementById('appSelectionModal');
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+    const appSelectionModal = document.getElementById('appSelectionModal');
+    const launchingSoonModal = document.getElementById('launchingSoonModal');
+    
+    if (appSelectionModal) {
+        appSelectionModal.addEventListener('click', (e) => {
+            if (e.target === appSelectionModal) {
                 closeAppSelectionModal();
+            }
+        });
+    }
+    
+    if (launchingSoonModal) {
+        launchingSoonModal.addEventListener('click', (e) => {
+            if (e.target === launchingSoonModal) {
+                closeLaunchingSoonModal();
             }
         });
     }
@@ -744,6 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeAppSelectionModal();
+            closeLaunchingSoonModal();
         }
     });
 });

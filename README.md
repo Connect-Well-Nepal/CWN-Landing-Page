@@ -128,13 +128,15 @@ CWN-LandingPage/
 
 ## 🔐 Authentication Flow
 
+**Note**: The platform is currently in pre-launch phase. When users attempt to sign in or sign up, they will see a "We're Launching Soon!" message instead of being redirected.
+
 ### **Desktop Experience**
-- **Login/Sign Up** → Direct redirect to `https://app.connectwellnepal.com`
+- **Login/Sign Up** → Shows "Launching Soon" modal (will redirect to `https://app.connectwellnepal.org` after launch)
 
 ### **Mobile Experience**
 - **Smart Detection**: Identifies iOS/Android devices
-- **App/Web Modal**: Choice between native app or web version
-- **Deep Linking**: Attempts to open ConnectWell Nepal app
+- **App/Web Modal**: Choice between native app or web version (available after launch)
+- **Deep Linking**: Attempts to open ConnectWell Nepal app (available after launch)
 - **Fallback**: Graceful redirect to web application
 
 ## 🌐 Browser Support
