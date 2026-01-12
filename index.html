@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ConnectWell Nepal - Your Health, Our Priority. Telehealth platform connecting patients with healthcare providers across Nepal.">
+    <title>ConnectWell Nepal - Your Health, Our Priority</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="Icon-maskable-512.png" alt="ConnectWell Nepal" class="nav-logo-image">
+                    <a href="#" class="logo-link" onclick="event.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'});">
+                        <span class="logo-text">
+                            <span class="logo-primary">Connect Well</span>
+                            <span class="logo-secondary">Nepal</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Services</a>
+                    <a href="#screenshots" class="nav-link">Impact</a>
+                    <a href="#testimonials" class="nav-link">Reviews</a>
+                    <a href="#trust" class="nav-link">Security</a>
+                    <button class="btn-secondary-nav" onclick="handleAuth('login')">Login</button>
+                    <button class="btn-primary-nav" onclick="handleAuth('signup')">Sign Up</button>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <span class="material-icons">dark_mode</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#features" onclick="closeMobileMenu()">Services</a>
+            <a href="#screenshots" onclick="closeMobileMenu()">Impact</a>
+            <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+            <a href="#trust" onclick="closeMobileMenu()">Security</a>
+            <button class="btn-secondary-nav" onclick="handleAuth('login'); closeMobileMenu();">Login</button>
+            <button class="btn-primary-nav" onclick="handleAuth('signup'); closeMobileMenu();">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <img src="Icon-maskable-512.png" alt="ConnectWell Nepal Logo" class="logo-image">
+                    </div>
+                </div>
+                <h1 class="hero-headline">
+                    <span class="headline-primary">Connect Well</span>
+                    <span class="headline-secondary">Nepal</span>
+                </h1>
+                <p class="hero-tagline">
+                    <span class="tagline-static">Your Health, Our Priority</span>
+                    <span class="tagline-typing" id="typingText"></span>
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-primary-large" onclick="handleAuth('signup')">Get Started</button>
+                    <button class="btn-secondary-large" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose ConnectWell Nepal?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <span class="material-icons">video_call</span>
+                    </div>
+                    <h3 class="feature-title">Video Consultations</h3>
+                    <p class="feature-description">Connect with doctors via secure video calls from anywhere in Nepal</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">
+                        <span class="material-icons">calendar_today</span>
+                    </div>
+                    <h3 class="feature-title">Easy Appointment Booking</h3>
+                    <p class="feature-description">Book appointments with calendar integration and time slot selection</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <span class="material-icons">article</span>
+                    </div>
+                    <h3 class="feature-title">Health Education</h3>
+                    <p class="feature-description">Access articles and self-care resources by category</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon red">
+                        <span class="material-icons">location_on</span>
+                    </div>
+                    <h3 class="feature-title">Find Nearby Clinics</h3>
+                    <p class="feature-description">Discover healthcare facilities near you with distance information</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <span class="material-icons">psychology</span>
+                    </div>
+                    <h3 class="feature-title">AI Health Assistant</h3>
+                    <p class="feature-description">Get help navigating the app with our intelligent assistant</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <span class="material-icons">spa</span>
+                    </div>
+                    <h3 class="feature-title">Self-Care Tools</h3>
+                    <p class="feature-description">Meditation, exercise, nutrition, and mental health resources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Showcase Section -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <h2 class="section-title">How ConnectWell Nepal Transforms Healthcare</h2>
+            <p class="section-subtitle">Connecting patients with quality healthcare across all regions of Nepal</p>
+            
+            <div class="platform-showcase">
+                <!-- Row 1: Main Value Propositions -->
+                <div class="showcase-item showcase-large">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #1A2F5A 0%, #2a4a7a 100%);">
+                        <span class="material-icons">public</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Healthcare Access Across Nepal</h3>
+                        <p>Break down geographical barriers. Patients in remote areas of Nepal can now access quality healthcare from certified doctors in Kathmandu, Pokhara, and other major cities—all through secure video consultations.</p>
+                        <ul class="showcase-benefits">
+                            <li><span class="material-icons">check_circle</span> No travel required</li>
+                            <li><span class="material-icons">check_circle</span> Available in Nepali and English</li>
+                            <li><span class="material-icons">check_circle</span> Works on mobile and desktop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="showcase-item">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #DC143C 0%, #b81235 100%);">
+                        <span class="material-icons">schedule</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>24/7 Availability</h3>
+                        <p>Healthcare doesn't wait. Book appointments, consult with doctors, and access health resources anytime, anywhere in Nepal.</p>
+                        <div class="showcase-stat">
+                            <span class="stat-value">24/7</span>
+                            <span class="stat-label">Platform Access</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Technical Excellence -->
+                <div class="showcase-item">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #28A745 0%, #1e7e34 100%);">
+                        <span class="material-icons">security</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>End-to-End Encryption</h3>
+                        <p>Your health data is protected with military-grade encryption. All video calls, messages, and medical records are secure and HIPAA compliant.</p>
+                        <div class="showcase-badge">
+                            <span class="material-icons">verified</span>
+                            <span>HIPAA Compliant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="showcase-item showcase-large">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="material-icons">medical_services</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Comprehensive Medical Services</h3>
+                        <p>From general consultations to specialized care, ConnectWell Nepal covers all your healthcare needs:</p>
+                        <div class="services-grid">
+                            <div class="service-item">
+                                <span class="material-icons">favorite</span>
+                                <span>Cardiology</span>
+                            </div>
+                            <div class="service-item">
+                                <span class="material-icons">child_care</span>
+                                <span>Pediatrics</span>
+                            </div>
+                            <div class="service-item">
+                                <span class="material-icons">pregnant_woman</span>
+                                <span>Gynecology</span>
+                            </div>
+                            <div class="service-item">
+                                <span class="material-icons">psychology</span>
+                                <span>Mental Health</span>
+                            </div>
+                            <div class="service-item">
+                                <span class="material-icons">healing</span>
+                                <span>General Medicine</span>
+                            </div>
+                            <div class="service-item">
+                                <span class="material-icons">visibility</span>
+                                <span>Dermatology</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Impact & Benefits -->
+                <div class="showcase-item showcase-large">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="material-icons">trending_up</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Real Impact on Nepali Healthcare</h3>
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <div class="impact-number">85%</div>
+                                <div class="impact-label">Reduced travel time for patients</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">60%</div>
+                                <div class="impact-label">Cost savings vs. in-person visits</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">92%</div>
+                                <div class="impact-label">Patient satisfaction rate</div>
+                            </div>
+                        </div>
+                        <p class="impact-note">Making quality healthcare accessible and affordable for all Nepalis, regardless of location.</p>
+                    </div>
+                </div>
+
+                <div class="showcase-item">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="material-icons">record_voice_over</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Multilingual Support</h3>
+                        <p>Connect in your preferred language. Our platform supports Nepali, English, and regional dialects to ensure clear communication.</p>
+                        <div class="language-badges">
+                            <span class="language-badge">नेपाली</span>
+                            <span class="language-badge">English</span>
+                            <span class="language-badge">हिन्दी</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Self-Care & Wellness -->
+                <div class="showcase-item">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span class="material-icons">spa</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Holistic Wellness Hub</h3>
+                        <p>Beyond consultations, access meditation guides, exercise routines, nutrition tips, and mental health resources tailored for Nepali lifestyles.</p>
+                        <div class="wellness-features">
+                            <span class="wellness-tag">Meditation</span>
+                            <span class="wellness-tag">Yoga</span>
+                            <span class="wellness-tag">Nutrition</span>
+                            <span class="wellness-tag">Mental Health</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="showcase-item showcase-large">
+                    <div class="showcase-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="material-icons">local_hospital</span>
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Integrated Healthcare Ecosystem</h3>
+                        <p>ConnectWell Nepal brings together patients, doctors, clinics, and hospitals in one unified platform:</p>
+                        <div class="ecosystem-flow">
+                            <div class="flow-item">
+                                <div class="flow-icon">👤</div>
+                                <div class="flow-text">Patients book appointments</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-item">
+                                <div class="flow-icon">👨‍⚕️</div>
+                                <div class="flow-text">Doctors manage schedules</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-item">
+                                <div class="flow-icon">🏥</div>
+                                <div class="flow-text">Clinics expand reach</div>
+                            </div>
+                        </div>
+                        <p class="ecosystem-note">Creating a connected healthcare network across Nepal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonials-carousel">
+                <button class="carousel-control prev" id="testimonialPrev" aria-label="Previous testimonial">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <div class="testimonials-wrapper">
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <div class="testimonial-card active">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <span class="material-icons quote-icon">format_quote</span>
+                                    <p>"ConnectWell Nepal has made healthcare so accessible. I can consult with doctors from anywhere in Nepal without leaving my home. It's truly revolutionary!"</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">SK</div>
+                                    <div class="author-info">
+                                        <h4>Sarah Karki</h4>
+                                        <p>Patient, Kathmandu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <span class="material-icons quote-icon">format_quote</span>
+                                    <p>"As a doctor, ConnectWell Nepal has streamlined my practice. The platform is intuitive, and I can reach more patients efficiently. Highly recommended!"</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">DR</div>
+                                    <div class="author-info">
+                                        <h4>Dr. Rajesh Sharma</h4>
+                                        <p>Cardiologist, Pokhara</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <span class="material-icons quote-icon">format_quote</span>
+                                    <p>"The self-care resources and health articles have been incredibly helpful. ConnectWell Nepal is more than just appointments - it's a complete health companion."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">PM</div>
+                                    <div class="author-info">
+                                        <h4>Priya Maharjan</h4>
+                                        <p>Patient, Lalitpur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">
+                                    <span class="material-icons quote-icon">format_quote</span>
+                                    <p>"Booking appointments has never been easier. The calendar integration and time slot selection make scheduling seamless. Great platform!"</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AS</div>
+                                    <div class="author-info">
+                                        <h4>Anil Shrestha</h4>
+                                        <p>Patient, Bhaktapur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control next" id="testimonialNext" aria-label="Next testimonial">
+                    <span class="material-icons">chevron_right</span>
+                </button>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section id="trust" class="trust">
+        <div class="container">
+            <h2 class="section-title">Trusted by Healthcare Providers Across Nepal</h2>
+            <div class="trust-content">
+                <div class="trust-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Doctors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Patients Served</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Clinics & Hospitals</div>
+                    </div>
+                </div>
+                <div class="trust-features">
+                    <div class="trust-feature">
+                        <span class="material-icons trust-icon">verified</span>
+                        <div>
+                            <h3>Verified Doctors</h3>
+                            <p>All healthcare providers are verified and licensed professionals</p>
+                        </div>
+                    </div>
+                    <div class="trust-feature">
+                        <span class="material-icons trust-icon">lock</span>
+                        <div>
+                            <h3>Secure & Encrypted</h3>
+                            <p>All video calls and data are encrypted for your privacy and security</p>
+                        </div>
+                    </div>
+                    <div class="trust-feature">
+                        <span class="material-icons trust-icon">shield</span>
+                        <div>
+                            <h3>HIPAA Compliant</h3>
+                            <p>We follow strict healthcare data protection standards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Get Started?</h2>
+                <p class="cta-subtitle">Join ConnectWell Nepal today</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary-large" onclick="handleAuth('signup')">Download App</button>
+                    <button class="btn-secondary-large white" onclick="handleAuth('signup')">Sign Up for Web</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="Icon-maskable-512.png" alt="ConnectWell Nepal" class="footer-logo-image">
+                        <span class="logo-text footer-logo-text">
+                            <span class="logo-primary">Connect Well</span>
+                            <span class="logo-secondary">Nepal</span>
+                        </span>
+                    </div>
+                    <p class="footer-tagline">Your Health, Our Priority</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Services</a></li>
+                        <li><a href="#screenshots">Impact</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#trust">Security</a></li>
+                        <li><a href="#" onclick="handleAuth('signup'); return false;">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-connect-desc">Follow us on social media for health tips, updates, and community support</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link facebook" target="_blank" rel="noopener noreferrer">
+                            <span class="material-icons">facebook</span>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        
+                        <a href="#" aria-label="Instagram" class="social-link instagram" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ConnectWell Nepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile App/Web Selection Modal -->
+    <div class="modal" id="appSelectionModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAppSelectionModal()">
+                <span class="material-icons">close</span>
+            </button>
+            <h3>Choose how to continue</h3>
+            <p>Would you like to open the app or continue on the web?</p>
+            <div class="modal-buttons">
+                <button class="btn-primary-large" onclick="openInApp()">Open App</button>
+                <button class="btn-secondary-large" onclick="continueOnWeb()">Continue on Web</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
