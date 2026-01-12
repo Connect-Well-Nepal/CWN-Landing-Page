@@ -42,13 +42,16 @@
                 </button>
             </div>
         </div>
+        <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
         <div class="mobile-menu" id="mobileMenu">
             <a href="#features" onclick="closeMobileMenu()">Services</a>
             <a href="#screenshots" onclick="closeMobileMenu()">Impact</a>
             <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
             <a href="#trust" onclick="closeMobileMenu()">Security</a>
-            <button class="btn-secondary-nav" onclick="handleAuth('login'); closeMobileMenu();">Login</button>
-            <button class="btn-primary-nav" onclick="handleAuth('signup'); closeMobileMenu();">Sign Up</button>
+            <div class="mobile-menu-actions">
+                <button class="btn-secondary-nav" onclick="handleAuth('login'); closeMobileMenu();">Login</button>
+                <button class="btn-primary-nav" onclick="handleAuth('signup'); closeMobileMenu();">Sign Up</button>
+            </div>
         </div>
     </nav>
 

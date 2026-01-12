@@ -52,15 +52,33 @@ function toggleTheme() {
 
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
     if (mobileMenu) {
         mobileMenu.classList.toggle('active');
+    }
+    if (mobileMenuToggle) {
+        mobileMenuToggle.classList.toggle('active');
+    }
+    if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.classList.toggle('active');
     }
 }
 
 function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
     if (mobileMenu) {
         mobileMenu.classList.remove('active');
+    }
+    if (mobileMenuToggle) {
+        mobileMenuToggle.classList.remove('active');
+    }
+    if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.classList.remove('active');
     }
 }
 
@@ -668,13 +686,18 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     }
     
-    // Close mobile menu when clicking outside
+    // Close mobile menu when clicking outside or on backdrop
+    const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+    if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
     document.addEventListener('click', (e) => {
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        
-        if (mobileMenu && mobileMenuToggle && 
-            !mobileMenu.contains(e.target) && 
+
+        if (mobileMenu && mobileMenuToggle &&
+            !mobileMenu.contains(e.target) &&
             !mobileMenuToggle.contains(e.target) &&
             mobileMenu.classList.contains('active')) {
             closeMobileMenu();
